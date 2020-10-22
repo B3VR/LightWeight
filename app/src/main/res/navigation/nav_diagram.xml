@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_diagram"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.lightweight.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_startTrainingFragment"
+            app:destination="@id/startTrainingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addTrainingFragment"
+            app:destination="@id/addTrainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.lightweight.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercisesListFragment"
+        android:name="com.example.lightweight.ExercisesListFragment"
+        android:label="fragment_exercises_list"
+        tools:layout="@layout/fragment_exercises_list" >
+        <action
+            android:id="@+id/action_exercisesListFragment_to_addTrainingFragment"
+            app:destination="@id/addTrainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.lightweight.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startTrainingFragment"
+        android:name="com.example.lightweight.StartTrainingFragment"
+        android:label="fragment_start_training"
+        tools:layout="@layout/fragment_start_training" />
+    <fragment
+        android:id="@+id/addTrainingFragment"
+        android:name="com.example.lightweight.AddTrainingFragment"
+        android:label="fragment_add_training"
+        tools:layout="@layout/fragment_add_training" >
+        <action
+            android:id="@+id/action_addTrainingFragment_to_exercisesListFragment"
+            app:destination="@id/exercisesListFragment" />
+    </fragment>
+</navigation>

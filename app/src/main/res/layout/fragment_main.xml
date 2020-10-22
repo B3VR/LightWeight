@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="215dp"
+            android:layout_height="192dp"
+            android:background="#FFFFFF"
+            android:src="@drawable/dumbbell"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <Button
+            android:id="@+id/profileBtn"
+            android:layout_width="139dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custom_btn"
+            android:text="Profil użytkownika"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <Button
+            android:id="@+id/editProfileBtn"
+            android:layout_width="139dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_btn"
+            android:text="Edytuj profil"
+            app:layout_constraintEnd_toEndOf="@+id/profileBtn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/profileBtn"
+            app:layout_constraintTop_toBottomOf="@+id/profileBtn" />
+
+        <Button
+            android:id="@+id/addTrainingBtn"
+            android:layout_width="139dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_btn"
+            android:text="Dodaj trening"
+            app:layout_constraintEnd_toEndOf="@+id/startTrainingBtn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/startTrainingBtn"
+            app:layout_constraintTop_toBottomOf="@+id/startTrainingBtn" />
+
+        <Button
+            android:id="@+id/startTrainingBtn"
+            android:layout_width="139dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custom_btn"
+            android:text="Rozpocznij trening"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintStart_toEndOf="@+id/profileBtn"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
