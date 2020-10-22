@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 
 class MainFragment : Fragment(), View.OnClickListener {
 
@@ -22,6 +23,9 @@ class MainFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        navControler = Navigation.findNavController(view)
+
         view.findViewById<Button>(R.id.profileBtn).setOnClickListener(this)
         view.findViewById<Button>(R.id.editProfileBtn).setOnClickListener(this)
         view.findViewById<Button>(R.id.startTrainingBtn).setOnClickListener(this)
