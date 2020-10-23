@@ -17,9 +17,11 @@
             android:layout_height="192dp"
             android:background="#FFFFFF"
             android:src="@drawable/dumbbell"
+            app:layout_constraintBottom_toTopOf="@+id/editNameTxt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13999999" />
 
         <EditText
             android:id="@+id/editNameTxt"
@@ -68,8 +70,8 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/custom_btn"
             android:text="Zatwierdź"
-            app:layout_constraintEnd_toEndOf="@+id/editHeightTxt2"
-            app:layout_constraintStart_toStartOf="@+id/editHeightTxt2"
-            app:layout_constraintTop_toBottomOf="@+id/editHeightTxt2" />
+            app:layout_constraintEnd_toEndOf="@+id/editWeightTxt"
+            app:layout_constraintStart_toStartOf="@+id/editWeightTxt"
+            app:layout_constraintTop_toBottomOf="@+id/editWeightTxt" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

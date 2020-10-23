@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 
@@ -21,10 +23,9 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
         return inflater.inflate(R.layout.fragment_edit_profile, container, false)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.setBtn).setOnClickListener(this)
     }
 
     private fun editProfile(){
@@ -33,26 +34,25 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
         var height: Double = view?.findViewById<TextView>(R.id.editHeightTxt).toString().toDouble()
 
         var ref = FirebaseDatabase.getInstance().getReference("User")
-        var user: User = User(name, weight, height)
         val userId = ref.push().key
+        var user: User = User(userId!! ,name, weight, height)
 
-        ref.child(userId).setValue(user)
-
-
-
+        ref.child(userId!!).setValue(user).addOnCompleteListener{
+            Toast.makeText(context, "Zapisano", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onClick(v: View?) {
         when(v!!.id){
-            R.id.editProfileBtn -> {
+            R.id.setBtn -> {
                 if(editNameTxt.text.isEmpty()){
-                    editNameTxt.error = "Wymagana nazwa użytkownika"
+                    editNameTxt.error = "Podaj nazwę użytkownika"
                     return
                 }else if (editHeightTxt.text.isEmpty()){
-                    editHeightTxt.error = "Wymagany wzrost"
+                    editHeightTxt.error = "Podaj wzrost"
                     return
                 }else if (editWeightTxt.text.isEmpty()){
-                    editHeightTxt.error = "Wymagana waga"
+                    editHeightTxt.error = "Podaj wagę"
                     return
                 }else
 
