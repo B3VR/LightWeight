@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#FFFFFF">
 
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="215dp"
+            android:layout_height="192dp"
+            android:background="#FFFFFF"
+            android:src="@drawable/dumbbell"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <EditText
+            android:id="@+id/editNameTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="264dp"
+            android:ems="10"
+            android:hint="Nazwa użytkownika"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editHeightTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Wzrost"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/editNameTxt"
+            app:layout_constraintStart_toStartOf="@+id/editNameTxt"
+            app:layout_constraintTop_toBottomOf="@+id/editNameTxt" />
+
+        <EditText
+            android:id="@+id/editWeightTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Waga"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="@+id/editHeightTxt"
+            app:layout_constraintStart_toStartOf="@+id/editHeightTxt"
+            app:layout_constraintTop_toBottomOf="@+id/editHeightTxt" />
+
+        <Button
+            android:id="@+id/setBtn"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_btn"
+            android:text="Zatwierdź"
+            app:layout_constraintEnd_toEndOf="@+id/editHeightTxt2"
+            app:layout_constraintStart_toStartOf="@+id/editHeightTxt2"
+            app:layout_constraintTop_toBottomOf="@+id/editHeightTxt2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

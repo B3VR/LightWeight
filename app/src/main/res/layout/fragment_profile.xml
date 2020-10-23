@@ -11,6 +11,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="429dp"
             android:layout_height="68dp"
             android:layout_marginStart="120dp"
@@ -25,33 +26,31 @@
                 android:id="@+id/userNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="51dp"
-                android:layout_marginLeft="51dp"
-                android:layout_marginEnd="244dp"
-                android:layout_marginRight="244dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
                 android:fontFamily="casual"
+                android:text="Jarosław Kaczyński"
                 android:textColor="#000"
-                android:textStyle="bold"
-                android:text="userNameTxt"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 app:fontFamily="monospace"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.512" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="424dp"
             android:layout_height="131dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginRight="120dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="116dp"
+            android:layout_marginRight="116dp"
             android:background="@drawable/custom_btn"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.281" >
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
             <TextView
                 android:id="@+id/weightTxt"
@@ -60,9 +59,9 @@
                 android:layout_marginStart="168dp"
                 android:layout_marginLeft="168dp"
                 android:fontFamily="casual"
+                android:text="Waga"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:text="Waga"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -74,8 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginLeft="50dp"
-                android:text="Wzrost"
                 android:fontFamily="casual"
+                android:text="Wzrost"
                 android:textColor="#000"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -89,8 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginLeft="50dp"
-                android:text="BMI"
                 android:fontFamily="casual"
+                android:text="BMI"
                 android:textColor="#000"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -102,31 +101,48 @@
                 android:id="@+id/WeightView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XD"
+                android:text="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/weightTxt"
+                app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="@+id/weightTxt"
-                app:layout_constraintTop_toBottomOf="@+id/weightTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/weightTxt"
+                app:layout_constraintVertical_bias="0.253" />
 
             <TextView
                 android:id="@+id/heightView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":("
+                android:text="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/heightTxt"
+                app:layout_constraintHorizontal_bias="0.512"
                 app:layout_constraintStart_toStartOf="@+id/heightTxt"
-                app:layout_constraintTop_toBottomOf="@+id/heightTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/heightTxt"
+                app:layout_constraintVertical_bias="0.253" />
 
             <TextView
                 android:id="@+id/bmiView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":)"
+                android:text="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/bmiTxt"
                 app:layout_constraintStart_toStartOf="@+id/bmiTxt"
-                app:layout_constraintTop_toBottomOf="@+id/bmiTxt" />
+                app:layout_constraintTop_toBottomOf="@+id/bmiTxt"
+                app:layout_constraintVertical_bias="0.253" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/editProfileBtn2"
+            android:layout_width="330dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/custom_btn"
+            android:text="Edytuj profil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
