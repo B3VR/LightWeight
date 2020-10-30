@@ -9,11 +9,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 
 
 class EditProfileFragment : Fragment(), View.OnClickListener {
+
+    var navControler: NavController? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,18 +30,20 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.setBtn).setOnClickListener(this)
+
+        navControler = Navigation.findNavController(view)
     }
 
     private fun editProfile(){
-        var name: String = view?.findViewById<TextView>(R.id.editNameTxt).toString()
-        var weight: Double = view?.findViewById<TextView>(R.id.editWeightTxt).toString().toDouble()
-        var height: Double = view?.findViewById<TextView>(R.id.editHeightTxt).toString().toDouble()
+        var name: String = editNameTxt.text.toString()
+        var weight: Double = editWeightTxt.text.toString().toDouble()
+        var height: Double = editHeightTxt.text.toString().toDouble()
 
         var ref = FirebaseDatabase.getInstance().getReference("User")
         val userId = ref.push().key
         var user: User = User(userId!! ,name, weight, height)
 
-        ref.child(userId!!).setValue(user).addOnCompleteListener{
+        ref.child(userId).setValue(user).addOnCompleteListener{
             Toast.makeText(context, "Zapisano", Toast.LENGTH_LONG).show()
         }
     }
@@ -54,9 +60,10 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
                 }else if (editWeightTxt.text.isEmpty()){
                     editHeightTxt.error = "Podaj wagę"
                     return
-                }else
-
+                }else {
                     editProfile()
+                    navControler!!.navigate(R.id.action_editProfileFragment_to_mainFragment)
+                }
             }
         }
 
