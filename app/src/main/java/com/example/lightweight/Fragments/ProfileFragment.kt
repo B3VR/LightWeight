@@ -10,10 +10,15 @@ import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.lightweight.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
     var navControler: NavController? = null
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,12 +30,13 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        auth = Firebase.auth
         navControler = Navigation.findNavController(view)
         view.findViewById<Button>(R.id.editProfileBtn2).setOnClickListener(this)
 
         var bmi = view.findViewById<TextView>(R.id.bmiView)
         bmi.text = getBMI(85.0,1.5).toShort().toString()
+        userNameTxt.text = auth.uid.toString()
     }
 
     private fun getBMI(weight: Double, height: Double): Double{

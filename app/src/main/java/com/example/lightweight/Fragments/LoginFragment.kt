@@ -43,14 +43,22 @@ class LoginFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
     }
 
+    public override fun onStart() {
+        super.onStart()
+        auth.signOut()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        /*val currentUser = auth.currentUser
+        updateUI(currentUser)*/
+    }
+
     private fun login() {
         if (checkLoginData()){
             auth.signInWithEmailAndPassword(emailLoginTxt.text.toString(), passwordLoginTxt.text.toString())
                 .addOnSuccessListener {
                     val user = auth.currentUser
                     Toast.makeText(context, "Zalogowano", Toast.LENGTH_LONG).show()
-                    updateUI(user) }
-
+                    updateUI(user)
+                }
                 .addOnFailureListener {
                     updateUI(null)
                 }

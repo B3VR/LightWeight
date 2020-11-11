@@ -1,22 +1,23 @@
 package com.example.lightweight.Fragments
 
+import User
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.lightweight.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
@@ -43,13 +44,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
     }
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
-
     private fun updateUI(user: FirebaseUser?) {
         if(user != null){
             navController.navigate(R.id.action_registerFragment_to_loginFragment)
@@ -58,21 +52,33 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun addUser() {
-        TODO("Not yet implemented")
-    }
-
     private fun register() {
         if(checkRegisterData()){
-            auth.createUserWithEmailAndPassword(emailRegisterTxt.text.toString(), passwordRegisterTxt.text.toString())
+            auth.createUserWithEmailAndPassword(
+                emailRegisterTxt.text.toString(),
+                passwordRegisterTxt.text.toString()
+            )
                 .addOnSuccessListener {
                     val user = auth.currentUser
                     Toast.makeText(context, "Zarejestrowano", Toast.LENGTH_LONG).show()
                     updateUI(user)
+                    addUser()
                 }
                 .addOnFailureListener{
                     updateUI(null)
                 }
+        }
+    }
+
+    private fun addUser() {
+        var name: String = userNameRegisterTxt.text.toString()
+
+        var ref = FirebaseDatabase.getInstance().getReference("Users")
+        val userId = ref.push().key
+        val authUser = FirebaseAuth.getInstance().currentUser
+        var user: User = User(authUser!!.uid, name, 0.0, 0.0)
+
+        ref.child(authUser!!.uid).setValue(user).addOnFailureListener {
         }
     }
 
