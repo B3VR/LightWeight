@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="215dp"
+            android:layout_height="192dp"
+            android:layout_marginTop="16dp"
+            android:background="#FFFF"
+            android:src="@drawable/dumbbell"
+            app:layout_constraintBottom_toTopOf="@+id/editNameTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13999999" />
+
+        <EditText
+            android:id="@+id/emailLoginTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <EditText
+            android:id="@+id/passwordLoginTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Hasło"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/emailLoginTxt"
+            app:layout_constraintStart_toStartOf="@+id/emailLoginTxt"
+            app:layout_constraintTop_toBottomOf="@+id/emailLoginTxt" />
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custom_btn"
+            android:text="Zaloguj"
+            app:layout_constraintEnd_toEndOf="@+id/passwordLoginTxt"
+            app:layout_constraintStart_toStartOf="@+id/passwordLoginTxt"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLoginTxt" />
+
+        <TextView
+            android:id="@+id/registerTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Nie masz konta ?"
+            android:textColor="#F2B800"
+            android:clickable="true"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/loginBtn"
+            app:layout_constraintStart_toStartOf="@+id/loginBtn"
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

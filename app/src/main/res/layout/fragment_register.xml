@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="215dp"
+            android:layout_height="192dp"
+            android:layout_marginTop="16dp"
+            android:background="#FFFF"
+            android:src="@drawable/dumbbell"
+            app:layout_constraintBottom_toTopOf="@+id/editNameTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13999999" />
+
+        <EditText
+            android:id="@+id/emailRegisterTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/userNameRegisterTxt"
+            app:layout_constraintStart_toStartOf="@+id/userNameRegisterTxt"
+            app:layout_constraintTop_toBottomOf="@+id/userNameRegisterTxt" />
+
+        <EditText
+            android:id="@+id/passwordRegisterTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Hasło"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/emailRegisterTxt"
+            app:layout_constraintStart_toStartOf="@+id/emailRegisterTxt"
+            app:layout_constraintTop_toBottomOf="@+id/emailRegisterTxt" />
+
+        <EditText
+            android:id="@+id/passwordRegistertxt2"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Powtórz hasło"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/passwordRegisterTxt"
+            app:layout_constraintStart_toStartOf="@+id/passwordRegisterTxt"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTxt" />
+
+        <EditText
+            android:id="@+id/userNameRegisterTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Nazwa użytkownika"
+            app:layout_constraintEnd_toEndOf="@+id/logo"
+            app:layout_constraintStart_toStartOf="@+id/logo"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custom_btn"
+            android:text="Zarejestruj"
+            app:layout_constraintEnd_toEndOf="@+id/passwordRegistertxt2"
+            app:layout_constraintStart_toStartOf="@+id/passwordRegistertxt2"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegistertxt2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

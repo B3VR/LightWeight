@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="emailRegisterTxt" type="id" />
+    <item name="passwordRegisterTxt" type="id" />
+    <item name="passwordRegistertxt2" type="id" />
+    <item name="userNameRegisterTxt" type="id" />
+</resources>

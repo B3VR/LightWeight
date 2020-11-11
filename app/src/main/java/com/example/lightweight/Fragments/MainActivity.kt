@@ -1,7 +1,8 @@
-package com.example.lightweight
+package com.example.lightweight.Fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.lightweight.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

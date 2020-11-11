@@ -1,4 +1,4 @@
-package com.example.lightweight
+package com.example.lightweight.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.lightweight.R
 
 class MainFragment : Fragment(), View.OnClickListener {
 

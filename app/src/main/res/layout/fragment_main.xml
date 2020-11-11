@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MainFragment">
+    tools:context=".Fragments.MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,11 +15,12 @@
             android:id="@+id/logo"
             android:layout_width="215dp"
             android:layout_height="192dp"
+            android:layout_marginTop="16dp"
             android:background="#FFFFFF"
             android:src="@drawable/dumbbell"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/profileBtn"

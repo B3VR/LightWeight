@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileFragment">
+    tools:context=".Fragments.EditProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,19 +15,18 @@
             android:id="@+id/logo"
             android:layout_width="215dp"
             android:layout_height="192dp"
+            android:layout_marginTop="16dp"
             android:background="#FFFFFF"
             android:src="@drawable/dumbbell"
-            app:layout_constraintBottom_toTopOf="@+id/editNameTxt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.13999999" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editNameTxt"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:layout_marginTop="264dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Nazwa użytkownika"
             android:inputType="textPersonName"
@@ -35,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <EditText
             android:id="@+id/editHeightTxt"

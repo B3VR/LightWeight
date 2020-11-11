@@ -1,4 +1,4 @@
-package com.example.lightweight
+package com.example.lightweight.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.*
+import com.example.lightweight.R
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
