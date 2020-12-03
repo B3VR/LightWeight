@@ -24,7 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Krystian Miszta"
                 android:textColor="#000"
                 android:textSize="26dp"
                 android:textStyle="bold"
@@ -91,7 +90,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="83 kg"
                 android:textColor="#000"
                 android:textSize="19dp"
                 app:layout_constraintEnd_toEndOf="@+id/tvWeight"
@@ -103,7 +101,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
                 android:layout_marginTop="8dp"
-                android:text="185 cm"
                 android:textColor="#000"
                 android:textSize="19dp"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeight"
@@ -111,11 +108,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
 
             <TextView
-                android:id="@+id/tvHeightData2"
+                android:id="@+id/tvAgeData"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="8dp"
-                android:text="21"
                 android:textColor="#000"
                 android:textSize="19dp"
                 app:layout_constraintEnd_toEndOf="@+id/tvAge"

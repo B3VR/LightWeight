@@ -1,6 +1,8 @@
 package com.example.lightweight.Fragments
 
+import User
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import androidx.navigation.Navigation
 import com.example.lightweight.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -19,6 +22,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     var navControler: NavController? = null
     private lateinit var auth: FirebaseAuth
+    private var db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,9 +36,49 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
         navControler = Navigation.findNavController(view)
+
+        getUser()
+
     }
 
+    private fun getUser(){
+        var userList = mutableListOf<User?>()
+        db.collection("Users").document(auth.currentUser?.uid.toString()).get()
+            .addOnSuccessListener {
+                var user = it.toObject(User::class.java)
+                displayUserData(user)
 
+            }.addOnFailureListener {
+
+            }
+    }
+
+    private fun displayUserData(user: User?){
+        if(user?.age == null){
+            tvAgeData.text = "Brak"
+        }else{
+            tvAgeData.text = user.age.toString()
+        }
+
+        if(user?.weight == null){
+            tvWeightData.text = "Brak"
+        }else{
+            tvWeightData.text = user.weight.toString()
+        }
+
+        if(user?.height == null){
+            tvHeightData.text = "Brak"
+        }else{
+            tvHeightData.text = user.height.toString()
+        }
+
+        if(user?.name == null){
+            tvUserName.text = "Brak"
+        }else{
+            tvUserName.text = user.name
+        }
+
+    }
 
     override fun onClick(v: View?){
         when(v!!.id){
