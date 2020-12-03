@@ -35,17 +35,7 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
     }
 
     private fun editProfile(){
-        var name: String = editNameTxt.text.toString()
-        var weight: Double = editWeightTxt.text.toString().toDouble()
-        var height: Double = editHeightTxt.text.toString().toDouble()
 
-        var ref = FirebaseDatabase.getInstance().getReference("User")
-        val userId = ref.push().key
-        var user: User = User(userId!! ,name, weight, height)
-
-        ref.child(userId).setValue(user).addOnCompleteListener{
-            Toast.makeText(context, "Zapisano", Toast.LENGTH_LONG).show()
-        }
     }
 
     override fun onClick(v: View?) {

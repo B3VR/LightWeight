@@ -32,23 +32,13 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
         navControler = Navigation.findNavController(view)
-        view.findViewById<Button>(R.id.editProfileBtn2).setOnClickListener(this)
-
-        var bmi = view.findViewById<TextView>(R.id.bmiView)
-        bmi.text = getBMI(85.0,1.5).toShort().toString()
-        userNameTxt.text = auth.uid.toString()
     }
 
-    private fun getBMI(weight: Double, height: Double): Double{
-        var bmi: Double
-        bmi = weight/ (height*height)
 
-        return bmi
-    }
 
     override fun onClick(v: View?){
         when(v!!.id){
-            R.id.editProfileBtn2 -> navControler!!.navigate(R.id.action_profileFragment_to_editProfileFragment)
+
         }
     }
 }

@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_register.*
 
@@ -25,6 +26,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     lateinit var navController: NavController;
     private lateinit var auth: FirebaseAuth
+    private var db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,14 +74,16 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     private fun addUser() {
         var name: String = userNameRegisterTxt.text.toString()
+        var uid = auth.currentUser?.uid.toString()
 
-        var ref = FirebaseDatabase.getInstance().getReference("Users")
-        val userId = ref.push().key
-        val authUser = FirebaseAuth.getInstance().currentUser
-        var user: User = User(authUser!!.uid, name, 0.0, 0.0)
+        var user: User = User(uid, name, null, null, null, null)
 
-        ref.child(authUser!!.uid).setValue(user).addOnFailureListener {
-        }
+        db.collection("Users").document(uid).set(user)
+            .addOnSuccessListener {
+               Log.d("UDALO SIE", "UZYTKOWNIK DODANY")
+            }.addOnFailureListener {
+               Log.d("NIE UDALO SIE", "UZYTKOWNIK NIE DODANY")
+            }
     }
 
     private fun checkRegisterData(): Boolean {

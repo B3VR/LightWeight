@@ -1,7 +1,4 @@
-class User(var id: String, var name: String, var weight: Double, var height: Double) {
+class User(var id: String, var name: String, var weight: Double?, var height: Double?, var sex: String?, var age: Int? ) {
 
-    fun getBMI(): Double{
-        var BMI: Double
-        return 0.0
-    }
+
 }

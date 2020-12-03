@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2B800"
     tools:context=".Fragments.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,138 +12,117 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="429dp"
-            android:layout_height="68dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginLeft="120dp"
-            android:background="@drawable/custom_btn"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="245dp"
+            android:background="@drawable/upper_part"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.024">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/userNameTxt"
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Krystian Miszta"
+                android:textColor="#000"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/profile_img"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
-                android:fontFamily="casual"
-                android:text="Jarosław Kaczyński"
-                android:textColor="#000"
+                android:layout_marginTop="16dp"
+                android:text="Waga"
+                android:textColor="#FEAF26"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:fontFamily="monospace"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.512" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="424dp"
-            android:layout_height="131dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="116dp"
-            android:layout_marginRight="116dp"
-            android:background="@drawable/custom_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
             <TextView
-                android:id="@+id/weightTxt"
+                android:id="@+id/tvHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="168dp"
-                android:layout_marginLeft="168dp"
-                android:fontFamily="casual"
-                android:text="Waga"
-                android:textColor="#000"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.142" />
-
-            <TextView
-                android:id="@+id/heightTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginLeft="50dp"
-                android:fontFamily="casual"
+                android:layout_marginTop="16dp"
                 android:text="Wzrost"
-                android:textColor="#000"
+                android:textColor="#FEAF26"
+                android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/weightTxt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.142" />
+                app:layout_constraintEnd_toEndOf="@+id/profile_image"
+                app:layout_constraintStart_toStartOf="@+id/profile_image"
+                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
             <TextView
-                android:id="@+id/bmiTxt"
+                android:id="@+id/tvAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginLeft="50dp"
-                android:fontFamily="casual"
-                android:text="BMI"
-                android:textColor="#000"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:text="Wiek"
+                android:textColor="#FEAF26"
+                android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/heightTxt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.142" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
             <TextView
-                android:id="@+id/WeightView"
+                android:id="@+id/tvWeightData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/weightTxt"
-                app:layout_constraintHorizontal_bias="0.516"
-                app:layout_constraintStart_toStartOf="@+id/weightTxt"
-                app:layout_constraintTop_toBottomOf="@+id/weightTxt"
-                app:layout_constraintVertical_bias="0.253" />
+                android:layout_marginTop="8dp"
+                android:text="83 kg"
+                android:textColor="#000"
+                android:textSize="19dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvWeight"
+                app:layout_constraintStart_toStartOf="@+id/tvWeight"
+                app:layout_constraintTop_toBottomOf="@+id/tvWeight" />
 
             <TextView
-                android:id="@+id/heightView"
+                android:id="@+id/tvHeightData"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/heightTxt"
-                app:layout_constraintHorizontal_bias="0.512"
-                app:layout_constraintStart_toStartOf="@+id/heightTxt"
-                app:layout_constraintTop_toBottomOf="@+id/heightTxt"
-                app:layout_constraintVertical_bias="0.253" />
+                android:layout_height="26dp"
+                android:layout_marginTop="8dp"
+                android:text="185 cm"
+                android:textColor="#000"
+                android:textSize="19dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvHeight"
+                app:layout_constraintStart_toStartOf="@+id/tvHeight"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
 
             <TextView
-                android:id="@+id/bmiView"
+                android:id="@+id/tvHeightData2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/bmiTxt"
-                app:layout_constraintStart_toStartOf="@+id/bmiTxt"
-                app:layout_constraintTop_toBottomOf="@+id/bmiTxt"
-                app:layout_constraintVertical_bias="0.253" />
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:text="21"
+                android:textColor="#000"
+                android:textSize="19dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvAge"
+                app:layout_constraintStart_toStartOf="@+id/tvAge"
+                app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Button
-            android:id="@+id/editProfileBtn2"
-            android:layout_width="330dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="64dp"
-            android:background="@drawable/custom_btn"
-            android:text="Edytuj profil"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
