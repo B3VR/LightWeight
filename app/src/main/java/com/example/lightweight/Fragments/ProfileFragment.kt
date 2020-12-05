@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -37,12 +38,17 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         auth = Firebase.auth
         navControler = Navigation.findNavController(view)
 
-        getUser()
+        view.findViewById<ImageView>(R.id.ivBackArrow).setOnClickListener(this)
+
+
+
+
+        getUserData()
 
     }
 
-    private fun getUser(){
-        var userList = mutableListOf<User?>()
+    private fun getUserData(){
+
         db.collection("Users").document(auth.currentUser?.uid.toString()).get()
             .addOnSuccessListener {
                 var user = it.toObject(User::class.java)
@@ -82,6 +88,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?){
         when(v!!.id){
+            R.id.ivBackArrow -> navControler?.navigate(R.id.action_profileFragment_to_mainFragment)
+
 
         }
     }
