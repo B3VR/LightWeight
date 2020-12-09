@@ -6,7 +6,7 @@ class User(var id: String?, var name: String?, var weight: Double?, var height: 
         if (height != null && weight != null) {
 
             var meterHeight = height!! / 100;
-            var BMI = weight!! / meterHeight * meterHeight
+            var BMI = ( weight!! / (meterHeight * meterHeight))
 
             return BMI
 

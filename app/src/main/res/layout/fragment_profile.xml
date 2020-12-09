@@ -176,7 +176,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvBMI2"
+                android:id="@+id/tvPPM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -189,11 +189,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvBMIData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="21"
                 android:textColor="#000"
                 android:textSize="21dp"
                 app:layout_constraintEnd_toEndOf="@+id/tvBMI"
@@ -201,16 +200,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvBMI" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvPPMData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="2200 kcal"
                 android:textColor="#000"
                 android:textSize="21dp"
-                app:layout_constraintEnd_toEndOf="@+id/tvBMI2"
-                app:layout_constraintStart_toStartOf="@+id/tvBMI2"
-                app:layout_constraintTop_toBottomOf="@+id/tvBMI2" />
+                app:layout_constraintEnd_toEndOf="@+id/tvPPM"
+                app:layout_constraintStart_toStartOf="@+id/tvPPM"
+                app:layout_constraintTop_toBottomOf="@+id/tvPPM" />
 
             <TextView
                 android:id="@+id/textView4"

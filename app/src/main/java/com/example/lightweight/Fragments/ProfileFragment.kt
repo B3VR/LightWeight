@@ -18,6 +18,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profile.*
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class ProfileFragment : Fragment(), View.OnClickListener {
 
@@ -61,29 +63,41 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private fun displayUserData(user: User?){
         if(user?.age == null){
-            tvAgeData.text = "Brak"
+            tvAgeData.text = "-"
         }else{
-            tvAgeData.text = user.age.toString()
+            tvAgeData.text = BigDecimal(user.age!!).setScale(0,RoundingMode.HALF_EVEN).toString()
         }
 
         if(user?.weight == null){
-            tvWeightData.text = "Brak"
+            tvWeightData.text = "-"
         }else{
-            tvWeightData.text = user.weight.toString()
+            tvWeightData.text = BigDecimal(user.weight!!).setScale(0,RoundingMode.HALF_EVEN).toString() + " kg"
         }
 
         if(user?.height == null){
-            tvHeightData.text = "Brak"
+            tvHeightData.text = "-"
         }else{
-            tvHeightData.text = user.height.toString()
+            tvHeightData.text = BigDecimal(user.height!!).setScale(0,RoundingMode.HALF_EVEN).toString() + " cm"
         }
 
         if(user?.name == null){
-            tvUserName.text = "Brak"
+            tvUserName.text = "-"
         }else{
             tvUserName.text = user.name
         }
 
+        if (user?.getBMI() == null){
+            tvBMIData.text = "-"
+            tvBMI.setError("Uzupełnij profil by uzyskać więcej informacji")
+        }else {
+            tvBMIData.text = BigDecimal(user?.getBMI()!!).setScale(0, RoundingMode.HALF_EVEN).toString()
+        }
+
+        if (user?.getPPM() == null){
+            tvPPMData.text = "-"
+        }else{
+            tvPPMData.text = BigDecimal(user?.getPPM()!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " kcal"
+        }
     }
 
     override fun onClick(v: View?){
