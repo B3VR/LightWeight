@@ -43,7 +43,7 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
         view.findViewById<TextView>(R.id.tvSaveProfile).setOnClickListener(this)
         view.findViewById<ImageView>(R.id.ivBackArrow2).setOnClickListener(this)
 
-       displayUserData()
+        displayUserData()
     }
 
     private fun displayUserData()

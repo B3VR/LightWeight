@@ -24,7 +24,7 @@ class ExercisesListFragment : Fragment() {
         Exercise("Wiosłowanie hantlem jednorącz", "Plecy", R.drawable.dumbbell),
         Exercise("Wiosłowanie hantlami oburącz", "Plecy", R.drawable.dumbbell),
         Exercise("Przysiady ze sztangą", "Uda", R.drawable.dumbbell),
-        Exercise("Uginania podudzi", "Mięśnie Dwugłowe uda", R.drawable.dumbbell)
+        Exercise("Uginania podudzi", "Mięśnie Dwugłowe uda", null)
     )
 
     override fun onCreateView(

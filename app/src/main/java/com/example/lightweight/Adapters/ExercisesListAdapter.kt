@@ -40,7 +40,10 @@ class ExercisesListAdapter(var exerciseList: MutableList<Exercise>) : RecyclerVi
 
         holder.exerciseName.text = currentExercise.name
         holder.exerciseTarget.text = currentExercise.target
-        holder.exerciseImage.setImageResource(currentExercise.imageResource)
+
+        if(currentExercise.imageResource != null) {
+            holder.exerciseImage.setImageResource(currentExercise.imageResource!!)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_startTrainingFragment_to_exercisesListFragment"
             app:destination="@id/exercisesListFragment" />
+        <action
+            android:id="@+id/action_startTrainingFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
