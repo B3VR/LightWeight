@@ -19,9 +19,6 @@
         <action
             android:id="@+id/action_mainFragment_to_startTrainingFragment"
             app:destination="@id/startTrainingFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_addTrainingFragment"
-            app:destination="@id/addTrainingFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
@@ -38,8 +35,8 @@
         android:label="fragment_exercises_list"
         tools:layout="@layout/fragment_exercises_list" >
         <action
-            android:id="@+id/action_exercisesListFragment_to_addTrainingFragment"
-            app:destination="@id/addTrainingFragment" />
+            android:id="@+id/action_exercisesListFragment_to_startTrainingFragment"
+            app:destination="@id/startTrainingFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -57,14 +54,9 @@
         android:id="@+id/startTrainingFragment"
         android:name="com.example.lightweight.Fragments.StartTrainingFragment"
         android:label="fragment_start_training"
-        tools:layout="@layout/fragment_start_training" />
-    <fragment
-        android:id="@+id/addTrainingFragment"
-        android:name="com.example.lightweight.Fragments.AddTrainingFragment"
-        android:label="fragment_add_training"
-        tools:layout="@layout/fragment_add_training" >
+        tools:layout="@layout/fragment_start_training" >
         <action
-            android:id="@+id/action_addTrainingFragment_to_exercisesListFragment"
+            android:id="@+id/action_startTrainingFragment_to_exercisesListFragment"
             app:destination="@id/exercisesListFragment" />
     </fragment>
     <fragment

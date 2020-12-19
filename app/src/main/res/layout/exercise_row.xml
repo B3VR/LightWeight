@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="96dp"
-    android:layout_marginTop="12dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:id="@+id/card_pertanyaan"
     card_view:cardBackgroundColor="#FFFF"
     card_view:cardCornerRadius="8dp"
@@ -17,18 +18,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvExerciseName"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="Textview"
-            android:textColor="#000"
-            android:textSize="16dp"
-            android:textStyle="bold"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivExercise"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/profile_img"
             card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="ExerciseName"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/ivExercise"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvExerciseTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="ExerciseTarget"
+
+            android:textSize="16dp"
+            card_view:layout_constraintStart_toEndOf="@+id/ivExercise"
+            card_view:layout_constraintTop_toBottomOf="@+id/tvExerciseName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
