@@ -39,8 +39,6 @@ class MainFragment : Fragment(), View.OnClickListener {
 
             R.id.startTrainingBtn -> navControler!!.navigate(R.id.action_mainFragment_to_startTrainingFragment)
 
-            R.id.editProfileBtn -> navControler!!.navigate(R.id.action_mainFragment_to_editProfileFragment)
-
         }
     }
 

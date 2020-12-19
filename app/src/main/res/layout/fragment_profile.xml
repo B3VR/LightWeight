@@ -37,7 +37,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/profile_img"
+                android:src="@drawable/profile_image"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +129,21 @@
                 android:clickable="true"
                 android:src="@drawable/back_arrow"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Edytuj profil"
+                android:clickable="true"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

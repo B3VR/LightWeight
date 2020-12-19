@@ -41,7 +41,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         navControler = Navigation.findNavController(view)
 
         view.findViewById<ImageView>(R.id.ivBackArrow).setOnClickListener(this)
-
+        view.findViewById<TextView>(R.id.tvEditProfile).setOnClickListener(this)
 
 
 
@@ -104,7 +104,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         when(v!!.id){
             R.id.ivBackArrow -> navControler?.navigate(R.id.action_profileFragment_to_mainFragment)
 
-
+            R.id.tvEditProfile -> navControler?.navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
     }
 }

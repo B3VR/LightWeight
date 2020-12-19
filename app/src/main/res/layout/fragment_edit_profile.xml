@@ -24,7 +24,7 @@
                 android:id="@+id/circleImageView"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/profile_img"
+                android:src="@drawable/profile_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

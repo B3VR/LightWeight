@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 class EditProfileFragment : Fragment(), View.OnClickListener {
@@ -52,15 +54,15 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
                 var user = it.toObject(User::class.java)
 
                 if (user!!.weight != null){
-                    etWeight.append(user.weight.toString())
+                    etWeight.append(BigDecimal(user.weight!!).setScale(0, RoundingMode.HALF_EVEN).toString())
                 }
 
                 if (user!!.age != null){
-                    etAge.append(user.age.toString())
+                    etAge.append(BigDecimal(user.age!!).setScale(0,RoundingMode.HALF_EVEN).toString())
                 }
 
                 if (user!!.height != null){
-                    etHeight.append(user.height.toString())
+                    etHeight.append(BigDecimal(user.height!!).setScale(0,RoundingMode.HALF_EVEN).toString())
                 }
 
                 if(user!!.sex != null && user!!.sex == "Kobieta"){
@@ -126,7 +128,7 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
                 editProfile()
             }
 
-            R.id.ivBackArrow2 -> navControler?.navigate(R.id.action_editProfileFragment_to_mainFragment)
+            R.id.ivBackArrow2 -> navControler?.navigate(R.id.action_editProfileFragment_to_profileFragment)
 
         }
 
