@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lightweight.Adapters.SeriesAdapter
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_current_exercise.*
 class CurrentExerciseFragment : Fragment(), View.OnClickListener {
 
     var seriesList = mutableListOf<Serie>(Serie())
+    var navControler: NavController? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +33,9 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navControler = Navigation.findNavController(view)
+
+        view.findViewById<TextView>(R.id.tvEndExercise).setOnClickListener(this)
         view.findViewById<Button>(R.id.btnAddSeries).setOnClickListener(this)
 
         rvSeriesList.apply {
@@ -41,12 +48,17 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
     private fun addSerie() {
         var newSerie = Serie()
         seriesList.add(newSerie)
+        rvSeriesList.adapter?.notifyItemInserted(seriesList.size)
     }
 
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.btnAddSeries -> {
                 addSerie()
+            }
+
+            R.id.tvEndExercise -> {
+                navControler!!.navigate(R.id.action_currentExerciseFragment_to_startTrainingFragment)
             }
         }
     }

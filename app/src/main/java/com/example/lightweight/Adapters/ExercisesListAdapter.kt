@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,7 @@ class ExercisesListAdapter(var exerciseList: MutableList<Exercise>) : RecyclerVi
         init {
             itemView.setOnClickListener{
 
+
             }
 
             exerciseTarget = itemView.findViewById(R.id.tvExerciseTarget)
@@ -36,6 +38,7 @@ class ExercisesListAdapter(var exerciseList: MutableList<Exercise>) : RecyclerVi
     }
 
     override fun onBindViewHolder(holder: ExercisesViewHolder, position: Int) {
+
         var currentExercise = exerciseList[position]
 
         holder.exerciseName.text = currentExercise.name
