@@ -13,7 +13,7 @@ import com.example.lightweight.R
 import com.example.lightweight.models.Exercise
 import kotlinx.android.synthetic.main.exercise_row.view.*
 
-class ExercisesListAdapter(var exerciseList: MutableList<Exercise>) : RecyclerView.Adapter<ExercisesListAdapter.ExercisesViewHolder>() {
+class ExercisesListAdapter(var exerciseList: MutableList<Exercise>, var listener:ExerciseClickListener) : RecyclerView.Adapter<ExercisesListAdapter.ExercisesViewHolder>() {
 
     inner class ExercisesViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         var exerciseName: TextView
@@ -22,8 +22,7 @@ class ExercisesListAdapter(var exerciseList: MutableList<Exercise>) : RecyclerVi
 
         init {
             itemView.setOnClickListener{
-
-
+                listener.onClickListener()
             }
 
             exerciseTarget = itemView.findViewById(R.id.tvExerciseTarget)

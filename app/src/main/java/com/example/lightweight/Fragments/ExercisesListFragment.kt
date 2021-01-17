@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lightweight.Adapters.ExerciseClickListener
 import com.example.lightweight.Adapters.ExercisesListAdapter
 import com.example.lightweight.R
 import com.example.lightweight.models.Exercise
@@ -41,7 +43,11 @@ class ExercisesListFragment : Fragment() {
         recycler_view.apply {
 
             layoutManager = LinearLayoutManager(activity)
-            adapter = ExercisesListAdapter(execisesList)
+            adapter = ExercisesListAdapter(execisesList, object: ExerciseClickListener{
+                override fun onClickListener() {
+                    findNavController().navigate(R.id.action_exercisesListFragment_to_currentExerciseFragment)
+                }
+            })
 
         }
     }
