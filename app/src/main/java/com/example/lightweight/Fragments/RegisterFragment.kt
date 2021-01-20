@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.lightweight.R
+import com.example.lightweight.models.Training
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -65,6 +66,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(context, "Zarejestrowano", Toast.LENGTH_LONG).show()
                     updateUI(user)
                     addUser()
+                    addUserTrainingData()
                 }
                 .addOnFailureListener{
                     updateUI(null)
@@ -84,6 +86,14 @@ class RegisterFragment : Fragment(), View.OnClickListener {
             }.addOnFailureListener {
                Log.d("NIE UDALO SIE", "UZYTKOWNIK NIE DODANY")
             }
+    }
+
+    private fun addUserTrainingData(){
+        var currentTraining = Training()
+        currentTraining.isDone = false
+        db.collection("Users").document(auth.uid!!.toString())
+            .collection("Current Training").document("Current Training")
+            .set(currentTraining)
     }
 
     private fun checkRegisterData(): Boolean {

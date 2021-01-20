@@ -13,7 +13,7 @@ import com.example.lightweight.R
 import com.example.lightweight.models.Exercise
 import kotlinx.android.synthetic.main.exercise_row.view.*
 
-class ExercisesListAdapter(var exerciseList: MutableList<Exercise>, var listener:ExerciseClickListener) : RecyclerView.Adapter<ExercisesListAdapter.ExercisesViewHolder>() {
+class ExercisesListAdapter(var exerciseList: MutableList<Exercise>, private var listener: ExerciseClickListener) : RecyclerView.Adapter<ExercisesListAdapter.ExercisesViewHolder>() {
 
     inner class ExercisesViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         var exerciseName: TextView
@@ -31,11 +31,6 @@ class ExercisesListAdapter(var exerciseList: MutableList<Exercise>, var listener
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExercisesViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.exercise_row, parent, false)
-        return ExercisesViewHolder(v)
-    }
-
     override fun onBindViewHolder(holder: ExercisesViewHolder, position: Int) {
 
         var currentExercise = exerciseList[position]
@@ -46,6 +41,11 @@ class ExercisesListAdapter(var exerciseList: MutableList<Exercise>, var listener
         if(currentExercise.imageResource != null) {
             holder.exerciseImage.setImageResource(currentExercise.imageResource!!)
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExercisesViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.exercise_row, parent, false)
+        return ExercisesViewHolder(v)
     }
 
     override fun getItemCount(): Int {

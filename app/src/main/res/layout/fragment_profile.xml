@@ -15,6 +15,7 @@
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="245dp"
+            android:elevation="20dp"
             android:background="@drawable/upper_part"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -148,95 +149,102 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
+            app:cardElevation="32dp"
             android:layout_marginRight="8dp"
-            android:background="@drawable/gray_panel"
+            app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-            <TextView
-                android:id="@+id/tvBMI"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="16dp"
-                android:text="BMI "
-                android:textColor="#F2B800"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F5F5F5">
 
-            <TextView
-                android:id="@+id/tvBMI3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                android:text="BMI "
-                android:textColor="#F2B800"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvBMI3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:text="BMI "
+                    android:textColor="#F2B800"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvPPM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="PPM"
-                android:textColor="#F2B800"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/tvBMI3"
-                app:layout_constraintStart_toEndOf="@+id/tvBMI"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvPPM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="PPM"
+                    android:textColor="#F2B800"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tvBMI3"
+                    app:layout_constraintStart_toEndOf="@+id/tvBMI"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvBMIData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="#000"
-                android:textSize="21dp"
-                app:layout_constraintEnd_toEndOf="@+id/tvBMI"
-                app:layout_constraintStart_toStartOf="@+id/tvBMI"
-                app:layout_constraintTop_toBottomOf="@+id/tvBMI" />
+                <TextView
+                    android:id="@+id/tvBMIData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="#000"
+                    android:textSize="21dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvBMI"
+                    app:layout_constraintStart_toStartOf="@+id/tvBMI"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBMI" />
 
-            <TextView
-                android:id="@+id/tvPPMData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="#000"
-                android:textSize="21dp"
-                app:layout_constraintEnd_toEndOf="@+id/tvPPM"
-                app:layout_constraintStart_toStartOf="@+id/tvPPM"
-                app:layout_constraintTop_toBottomOf="@+id/tvPPM" />
+                <TextView
+                    android:id="@+id/tvPPMData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="#000"
+                    android:textSize="21dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPPM"
+                    app:layout_constraintStart_toStartOf="@+id/tvPPM"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPPM" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="TextView"
-                android:textColor="#000"
-                android:textSize="21dp"
-                app:layout_constraintEnd_toEndOf="@+id/tvBMI3"
-                app:layout_constraintStart_toStartOf="@+id/tvBMI3"
-                app:layout_constraintTop_toBottomOf="@+id/tvBMI3" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="#000"
+                    android:textSize="21dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvBMI3"
+                    app:layout_constraintStart_toStartOf="@+id/tvBMI3"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBMI3" />
+
+                <TextView
+                    android:id="@+id/tvBMI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="16dp"
+                    android:text="BMI "
+                    android:textColor="#F2B800"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
