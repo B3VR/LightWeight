@@ -1,6 +1,7 @@
 package com.example.lightweight.Fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -58,9 +59,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
                     val user = auth.currentUser
                     Toast.makeText(context, "Zalogowano", Toast.LENGTH_LONG).show()
                     updateUI(user)
+                    Log.d("LOGIN FRAGMENT", "UZYTKOWNIK ZALOGOWANY")
                 }
                 .addOnFailureListener {
                     updateUI(null)
+                    Log.d("LOGIN FRAGMENT", "BŁĄD LOGOWANIA")
                 }
         }
     }

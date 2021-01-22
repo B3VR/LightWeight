@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.lightweight.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,7 +20,6 @@ import com.example.lightweight.models.Training as Training
 
 
 class StartTrainingFragment : Fragment(), View.OnClickListener {
-    private lateinit var currentTraining: Training
 
     private var navController: NavController? = null
     private var db = FirebaseFirestore.getInstance()
@@ -37,37 +37,14 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         navController = Navigation.findNavController(view)
-
-        currentTraining = loadOrCreateCurrentTraining()!!
-
         view.findViewById<Button>(R.id.btnAddExercise).setOnClickListener(this)
         view.findViewById<TextView>(R.id.tvEndTraining).setOnClickListener(this)
         view.findViewById<ImageView>(R.id.ivBackArrow3).setOnClickListener(this)
+
+        getCurrentTraining()
     }
 
-    private fun loadOrCreateCurrentTraining(): Training? {
-        var currentTraining: Training?
-
-        if(!checkCurrentTraining()){
-            currentTraining = getCurrentTraining()
-
-        }else{
-            currentTraining = null
-        }
-
-        return currentTraining
-    }
-
-    private fun checkCurrentTraining(): Boolean {
-        var currentTraining = getCurrentTraining()
-        var isTrainingDone = currentTraining?.isDone
-
-        return isTrainingDone!!
-    }
-
-    private fun getCurrentTraining(): Training? {
-        var training = mutableListOf<Training>()
-
+    private  fun getCurrentTraining() {
         db.collection("Users")
             .document(auth.uid.toString())
             .collection("Current Training")
@@ -75,24 +52,66 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
             .get()
             .addOnSuccessListener {
                 var currentTraining = it.toObject(Training::class.java)
-                training.add(currentTraining!!)
-                Log.d("StartTrainingFragment", "obecny trening pobrany")
+
+                if(currentTraining!!.done == false) {
+                   displayCurrentTraining(currentTraining)
+
+                }else{
+                    addUserTrainingsData()
+                    getCurrentTraining()
+                }
 
             }.addOnFailureListener {
-                Log.d("StartTrainingFragment", "błąd pobrania obecnego treningu")
+                Log.w("START TRAINING FRAGMENT", "błąd pobrania obecnego treningu", it)
+
+            }
+    }
+
+    private fun displayCurrentTraining(currentTraining: Training) {
+
+    }
+
+    private fun addUserTrainingsData(){
+        var currentTraining = Training()
+        currentTraining.done = false
+        db.collection("Users").document(auth.uid!!.toString())
+            .collection("Current Training").document("Current Training")
+            .set(currentTraining)
+    }
+
+    private fun endTraining() {
+        db.collection("Users").document(auth.uid!!.toString())
+            .collection("Current Training").document("Current Training")
+            .update("done", true)
+            .addOnSuccessListener {
+
+
+            }.addOnFailureListener {
+
             }
 
-        if (training.isNotEmpty()){
-            return training[0]
+        db.collection("Users").document(auth.uid!!.toString())
+            .collection("Current Training").document("Current Training")
+            .get()
+            .addOnSuccessListener {
+                archiveTraining(it.toObject(Training::class.java)!!)
 
-        }else{
-            return null
-        }
+            }.addOnFailureListener {
+
+            }
     }
 
-    private fun saveTraining(){
+    private fun archiveTraining(training: Training) {
+        db.collection("Users")
+            .document(auth.uid!!.toString())
+            .collection("Training Archivum")
+            .document()
+            .set(training)
+            .addOnSuccessListener {
 
+            }
     }
+
 
     override fun onClick(v: View?) {
         when(v!!.id){
@@ -101,9 +120,11 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
             R.id.ivBackArrow3 -> navController?.navigate(R.id.action_startTrainingFragment_to_mainFragment)
 
             R.id.tvEndTraining -> {
-
-
+                endTraining()
+                findNavController().navigate(R.id.action_startTrainingFragment_to_mainFragment)
             }
         }
     }
+
+
 }

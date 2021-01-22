@@ -17,7 +17,6 @@ import com.example.lightweight.models.Training
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -66,7 +65,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(context, "Zarejestrowano", Toast.LENGTH_LONG).show()
                     updateUI(user)
                     addUser()
-                    addUserTrainingData()
+                    addUserTrainingsData()
                 }
                 .addOnFailureListener{
                     updateUI(null)
@@ -82,15 +81,15 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
         db.collection("Users").document(uid).set(user)
             .addOnSuccessListener {
-               Log.d("UDALO SIE", "UZYTKOWNIK DODANY")
+               Log.d("REGISTER FRAGMENT", "UZYTKOWNIK DODANY")
             }.addOnFailureListener {
-               Log.d("NIE UDALO SIE", "UZYTKOWNIK NIE DODANY")
+               Log.d("REGISTER FRAGMENT", "BŁĄ DODAWANIA UŻYTKOWNIKA")
             }
     }
 
-    private fun addUserTrainingData(){
+    private fun addUserTrainingsData(){
         var currentTraining = Training()
-        currentTraining.isDone = false
+        currentTraining.done = false
         db.collection("Users").document(auth.uid!!.toString())
             .collection("Current Training").document("Current Training")
             .set(currentTraining)
