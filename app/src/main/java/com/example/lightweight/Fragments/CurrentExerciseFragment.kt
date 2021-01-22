@@ -11,8 +11,10 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lightweight.Adapters.ExerciseClickListener
 import com.example.lightweight.Adapters.SeriesAdapter
 import com.example.lightweight.R
+import com.example.lightweight.models.Exercise
 import com.example.lightweight.models.Serie
 import kotlinx.android.synthetic.main.fragment_current_exercise.*
 
@@ -38,11 +40,15 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
         view.findViewById<TextView>(R.id.tvEndExercise).setOnClickListener(this)
         view.findViewById<Button>(R.id.btnAddSeries).setOnClickListener(this)
 
+        var currentExercise = arguments?.getParcelable<Exercise>("exercise")
+        tvCurrentExerciseName.text = currentExercise!!.name
+
         rvSeriesList.apply {
 
             layoutManager = LinearLayoutManager(activity)
-            adapter = SeriesAdapter(seriesList)
+            adapter = SeriesAdapter(seriesList, context)
         }
+
     }
 
     private fun addSerie() {
@@ -62,6 +68,7 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
 
 
 }

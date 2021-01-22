@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,9 +44,11 @@ class ExercisesListFragment : Fragment() {
         recycler_view.apply {
 
             layoutManager = LinearLayoutManager(activity)
-            adapter = ExercisesListAdapter(execisesList, object: ExerciseClickListener{
-                override fun onClickListener() {
-                    findNavController().navigate(R.id.action_exercisesListFragment_to_currentExerciseFragment)
+            adapter = ExercisesListAdapter(execisesList, object: ExerciseClickListener<Exercise>{
+
+                override fun onExerciseClickListener(item: Exercise) {
+                    val bundle = bundleOf("exercise" to item)
+                    findNavController().navigate(R.id.action_exercisesListFragment_to_currentExerciseFragment, bundle)
                 }
             })
 
