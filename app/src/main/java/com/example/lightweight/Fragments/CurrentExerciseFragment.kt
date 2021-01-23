@@ -23,6 +23,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_current_exercise.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class CurrentExerciseFragment : Fragment(), View.OnClickListener {
@@ -61,7 +64,6 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
 
         rv.layoutManager = LinearLayoutManager(activity)
         rv.adapter = adapter
-
     }
 
     private fun addSerie() {
@@ -70,7 +72,7 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
         rvSeriesList.adapter?.notifyItemInserted(seriesList.size)
     }
 
-    private  fun saveExercise() {
+    private fun saveExercise() {
         db.collection("Users")
             .document(auth.uid.toString())
             .collection("Current Training")
@@ -80,7 +82,10 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
                 var currentTraining = it.toObject(Training::class.java)
 
                 if(currentTraining!!.done == false) {
-                    addExerciseToTraining(currentTraining)
+                    GlobalScope.launch {
+                        addExerciseToTraining(currentTraining)
+                    }
+
                 }
             }.addOnFailureListener {
                 Log.w("START TRAINING FRAGMENT", "błąd pobrania obecnego treningu", it)
@@ -89,7 +94,7 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
     }
 
     private fun addExerciseToTraining(currentTraining: Training) {
-        currentExercise!!.series.addAll(seriesList)
+        currentExercise.series.addAll(seriesList)
 
         currentTraining.exercises.add(currentExercise!!)
 
@@ -98,14 +103,16 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
             .collection("Current Training")
             .document("Current Training")
             .set(currentTraining)
+
     }
 
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.btnAddSeries -> addSerie()
 
-            R.id.tvEndExercise -> { saveExercise()
-                //navControler!!.navigate(R.id.action_currentExerciseFragment_to_startTrainingFragment)
+            R.id.tvEndExercise -> {
+                saveExercise()
+                navControler!!.navigate(R.id.action_currentExerciseFragment_to_startTrainingFragment)
             }
         }
     }

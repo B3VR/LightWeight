@@ -12,6 +12,9 @@ import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.lightweight.Adapters.GroupAdapter
 import com.example.lightweight.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,6 +27,10 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
     private var navController: NavController? = null
     private var db = FirebaseFirestore.getInstance()
     private var auth = Firebase.auth
+
+    private lateinit var rvGroup: RecyclerView
+    private lateinit var adapterGroup: GroupAdapter
+    private lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +47,9 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
         view.findViewById<Button>(R.id.btnAddExercise).setOnClickListener(this)
         view.findViewById<TextView>(R.id.tvEndTraining).setOnClickListener(this)
         view.findViewById<ImageView>(R.id.ivBackArrow3).setOnClickListener(this)
+        rvGroup = view.findViewById(R.id.rvCurrentTraining)
+
+        rvGroup.adapter?.notifyDataSetChanged()
 
         getCurrentTraining()
     }
@@ -53,6 +63,7 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
             .addOnSuccessListener {
                 var currentTraining = it.toObject(Training::class.java)
 
+                Log.d("ROZMIAR", currentTraining!!.exercises.size.toString())
                 if(currentTraining!!.done == false) {
                    displayCurrentTraining(currentTraining)
 
@@ -68,7 +79,11 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
     }
 
     private fun displayCurrentTraining(currentTraining: Training) {
-
+        rvGroup.apply {
+            adapter = GroupAdapter(currentTraining, activity)
+            layoutManager = LinearLayoutManager(activity)
+        }
+        rvGroup.adapter!!.notifyItemInserted(0)
     }
 
     private fun addUserTrainingsData(){
@@ -115,13 +130,14 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when(v!!.id){
-            R.id.btnAddExercise -> navController?.navigate(R.id.action_startTrainingFragment_to_exercisesListFragment)
-
+            R.id.btnAddExercise -> {
+                navController?.navigate(R.id.action_startTrainingFragment_to_exercisesListFragment)
+            }
             R.id.ivBackArrow3 -> navController?.navigate(R.id.action_startTrainingFragment_to_mainFragment)
 
             R.id.tvEndTraining -> {
                 endTraining()
-                findNavController().navigate(R.id.action_startTrainingFragment_to_mainFragment)
+                navController?.navigate(R.id.action_startTrainingFragment_to_mainFragment)
             }
         }
     }
