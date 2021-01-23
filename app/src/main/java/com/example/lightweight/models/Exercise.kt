@@ -3,16 +3,16 @@ package com.example.lightweight.models
 import android.os.Parcel
 import android.os.Parcelable
 
-class Exercise(var name: String, var target: String, val imageResource: Int?): Parcelable {
+class Exercise(var name: String?, var target: String?, val imageResource: Int?): Parcelable {
     var series = mutableListOf<Serie>()
+
+    constructor() : this(null, null, null)
 
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readValue(Int::class.java.classLoader) as? Int
-    ) {
-
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)

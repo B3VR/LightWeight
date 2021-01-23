@@ -14,7 +14,7 @@ import com.example.lightweight.models.Exercise
 import com.example.lightweight.models.Serie
 import java.lang.Exception
 
-class SeriesAdapter(var seriesList: MutableList<Serie>, var context: Context) : RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder>() {
+class SeriesAdapter(var seriesList: MutableList<Serie>, var context: Context?) : RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder>() {
 
    inner class SeriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
        var serieNumber: TextView
@@ -57,5 +57,8 @@ class SeriesAdapter(var seriesList: MutableList<Serie>, var context: Context) : 
         return seriesList.size
     }
 
+    fun getItemList(): MutableList<Serie>{
+        return seriesList
+    }
 
 }
