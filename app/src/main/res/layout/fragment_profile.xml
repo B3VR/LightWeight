@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:textColor="#000"
+                android:gravity="center"
                 android:textSize="26dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
+                android:gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="Waga"
                 android:textColor="#000"
@@ -66,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Wzrost"
+                android:gravity="center"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -80,6 +83,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
+                android:gravity="center"
                 android:text="Wiek"
                 android:textColor="#000"
                 android:textSize="20dp"
@@ -94,6 +98,7 @@
                 android:layout_marginTop="8dp"
                 android:textColor="#000"
                 android:textSize="19dp"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="@+id/tvWeight"
                 app:layout_constraintStart_toStartOf="@+id/tvWeight"
                 app:layout_constraintTop_toBottomOf="@+id/tvWeight" />
@@ -105,6 +110,7 @@
                 android:layout_marginTop="8dp"
                 android:textColor="#000"
                 android:textSize="19dp"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="@+id/tvHeight"
                 app:layout_constraintStart_toStartOf="@+id/tvHeight"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
@@ -116,6 +122,7 @@
                 android:layout_marginTop="8dp"
                 android:textColor="#000"
                 android:textSize="19dp"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="@+id/tvAge"
                 app:layout_constraintStart_toStartOf="@+id/tvAge"
                 app:layout_constraintTop_toBottomOf="@+id/tvAge" />
@@ -139,6 +146,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:gravity="center"
                 android:clickable="true"
                 android:text="Edytuj profil"
                 android:textColor="#000"
@@ -170,13 +178,14 @@
                 android:background="#F5F5F5">
 
                 <TextView
-                    android:id="@+id/tvBMI3"
+                    android:id="@+id/tvRPM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginRight="32dp"
-                    android:text="BMI "
+                    android:gravity="center"
+                    android:text="RPM "
                     android:textColor="#F2B800"
                     android:textSize="20dp"
                     android:textStyle="bold"
@@ -189,10 +198,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="PPM"
+                    android:gravity="center"
                     android:textColor="#F2B800"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/tvBMI3"
+                    app:layout_constraintEnd_toStartOf="@+id/tvRPM"
                     app:layout_constraintStart_toEndOf="@+id/tvBMI"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -202,6 +212,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:textColor="#000"
+                    android:gravity="center"
                     android:textSize="21dp"
                     app:layout_constraintEnd_toEndOf="@+id/tvBMI"
                     app:layout_constraintStart_toStartOf="@+id/tvBMI"
@@ -214,21 +225,22 @@
                     android:layout_marginTop="16dp"
                     android:textColor="#000"
                     android:textSize="21dp"
+                    android:gravity="center"
                     app:layout_constraintEnd_toEndOf="@+id/tvPPM"
                     app:layout_constraintStart_toStartOf="@+id/tvPPM"
                     app:layout_constraintTop_toBottomOf="@+id/tvPPM" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/tvRPMData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="TextView"
+                    android:gravity="center"
                     android:textColor="#000"
                     android:textSize="21dp"
-                    app:layout_constraintEnd_toEndOf="@+id/tvBMI3"
-                    app:layout_constraintStart_toStartOf="@+id/tvBMI3"
-                    app:layout_constraintTop_toBottomOf="@+id/tvBMI3" />
+                    app:layout_constraintEnd_toEndOf="@+id/tvRPM"
+                    app:layout_constraintStart_toStartOf="@+id/tvRPM"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRPM" />
 
                 <TextView
                     android:id="@+id/tvBMI"
@@ -239,6 +251,7 @@
                     android:layout_marginTop="16dp"
                     android:text="BMI "
                     android:textColor="#F2B800"
+                    android:gravity="center"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"

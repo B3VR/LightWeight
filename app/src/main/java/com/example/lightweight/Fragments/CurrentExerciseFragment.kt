@@ -8,11 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lightweight.Adapters.ExerciseClickListener
 import com.example.lightweight.Adapters.SeriesAdapter
 import com.example.lightweight.R
 import com.example.lightweight.models.Exercise
@@ -23,9 +24,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_current_exercise.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class CurrentExerciseFragment : Fragment(), View.OnClickListener {
@@ -58,7 +56,7 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
 
         currentExercise = arguments?.getParcelable<Exercise>("exercise")!!
 
-        tvCurrentExerciseName.text = currentExercise!!.name
+        displayCurrentExercise(currentExercise)
 
         adapter = SeriesAdapter(seriesList, context)
 
@@ -66,13 +64,22 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
         rv.adapter = adapter
     }
 
+    private fun displayCurrentExercise(currentExercise: Exercise) {
+        tvCurrentExerciseName.text = currentExercise.name
+
+        if (currentExercise.imageResource != null){
+            ivCurrentExerciseImage.setImageResource(currentExercise.imageResource)
+        }
+    }
+
+
     private fun addSerie() {
         var newSerie = Serie()
         seriesList.add(newSerie)
         rvSeriesList.adapter?.notifyItemInserted(seriesList.size)
     }
 
-    private fun saveExercise() {
+    private fun saveExerciseAndBackToStartTrainingFragment() {
         db.collection("Users")
             .document(auth.uid.toString())
             .collection("Current Training")
@@ -82,10 +89,7 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
                 var currentTraining = it.toObject(Training::class.java)
 
                 if(currentTraining!!.done == false) {
-                    GlobalScope.launch {
-                        addExerciseToTraining(currentTraining)
-                    }
-
+                    addExerciseToTraining(currentTraining)
                 }
             }.addOnFailureListener {
                 Log.w("START TRAINING FRAGMENT", "błąd pobrania obecnego treningu", it)
@@ -96,14 +100,21 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
     private fun addExerciseToTraining(currentTraining: Training) {
         currentExercise.series.addAll(seriesList)
 
-        currentTraining.exercises.add(currentExercise!!)
+        currentTraining.exercises.add(currentExercise)
 
         db.collection("Users")
             .document(auth.uid.toString())
             .collection("Current Training")
             .document("Current Training")
             .set(currentTraining)
+            .addOnSuccessListener {
+                navControler!!.navigate(R.id.action_currentExerciseFragment_to_startTrainingFragment)
 
+            }.addOnFailureListener {
+
+                Toast.makeText(context, "Błąd zapisywania treningu", Toast.LENGTH_LONG)
+            }
+        
     }
 
     override fun onClick(v: View?) {
@@ -111,8 +122,7 @@ class CurrentExerciseFragment : Fragment(), View.OnClickListener {
             R.id.btnAddSeries -> addSerie()
 
             R.id.tvEndExercise -> {
-                saveExercise()
-                navControler!!.navigate(R.id.action_currentExerciseFragment_to_startTrainingFragment)
+                saveExerciseAndBackToStartTrainingFragment()
             }
         }
     }

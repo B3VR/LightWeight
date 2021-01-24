@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lightweight.R
 import com.example.lightweight.models.Serie
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class MemberAdapter(var seriesList: MutableList<Serie>) : RecyclerView.Adapter<MemberAdapter.MemberViewHolder>() {
 
@@ -32,8 +34,18 @@ class MemberAdapter(var seriesList: MutableList<Serie>) : RecyclerView.Adapter<M
         var serie = seriesList[position]
 
         holder.serieNumber.text = (position + 1).toString()
-        holder.weight.text = serie.weight.toString()
-        holder.reps.text = serie.reps.toString()
+        if(serie.weight != null){
+            holder.weight.text = BigDecimal(serie.weight!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " kg"
+        }else{
+            holder.weight.text = "Brak"
+        }
+
+        if(serie.reps != null){
+            holder.reps.text = BigDecimal(serie.reps!!).setScale(0, RoundingMode.HALF_EVEN).toString()
+        }else{
+            holder.reps.text = "Brak"
+        }
+
     }
 
     override fun getItemCount(): Int {

@@ -27,7 +27,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="kg"
-            android:inputType="textPersonName"
+            android:inputType="number"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/tvSerieNumber"
             card_view:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="reps"
-            android:inputType="textPersonName"
+            android:inputType="number"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/ivX"
             card_view:layout_constraintTop_toTopOf="parent" />
