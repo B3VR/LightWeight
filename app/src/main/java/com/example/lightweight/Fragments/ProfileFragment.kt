@@ -98,6 +98,14 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }else{
             tvPPMData.text = BigDecimal(user?.getPPM()!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " kcal"
         }
+
+        if (user?.getBMR() == null){
+            tvBMRData.text = "null"
+        }else{
+            tvBMRData.text = BigDecimal(user.getBMR()!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " kcal"
+        }
+
+
     }
 
     override fun onClick(v: View?){

@@ -1,6 +1,9 @@
-class User(var id: String?, var name: String?, var weight: Double?, var height: Double?, var sex: String?, var age: Double? ) {
+import android.util.Log
+import com.google.errorprone.annotations.Var
 
-    constructor() : this(null, null, null, null, null, null)
+class User(var id: String?, var name: String?, var weight: Double?, var height: Double?, var sex: String?, var age: Double?, var target: Double?, var activity: Double? ) {
+
+    constructor() : this(null, null, null, null, null, null, null, null)
 
     fun getBMI(): Double? {
         if (height != null && weight != null) {
@@ -11,6 +14,18 @@ class User(var id: String?, var name: String?, var weight: Double?, var height: 
             return BMI
 
         } else return null
+    }
+
+    fun getBMR(): Double?{
+        var PPM = getPPM()!!.toDouble()
+        var BMR: Double? = null
+
+        if(target != null && activity != null){
+            BMR = (PPM * activity!!) + target!!
+
+        }
+
+        return BMR
     }
 
     fun getPPM(): Int? {

@@ -2,4 +2,16 @@
     <string name="app_name">LightWeight</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="aktywnosc">
+        <item>Bardzo niska</item>
+        <item>Niska</item>
+        <item>Średnia</item>
+        <item>Wysoka</item>
+        <item>Bardzo wysoka</item>
+    </string-array>
+    <string-array name="destination">
+        <item>Budowa masy mięśniowej</item>
+        <item>Utrzymanie wagi</item>
+        <item>Spalanie tkanki tłuszczowej</item>
+    </string-array>
 </resources>

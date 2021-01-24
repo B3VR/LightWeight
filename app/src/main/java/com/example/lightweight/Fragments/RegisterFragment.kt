@@ -77,7 +77,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         var name: String = userNameRegisterTxt.text.toString()
         var uid = auth.currentUser?.uid.toString()
 
-        var user: User = User(uid, name, null, null, null, null)
+        var user: User = User(uid, name, null, null, null, null, null, null)
 
         db.collection("Users").document(uid).set(user)
             .addOnSuccessListener {

@@ -178,14 +178,14 @@
                 android:background="#F5F5F5">
 
                 <TextView
-                    android:id="@+id/tvRPM"
+                    android:id="@+id/tvBMR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginRight="32dp"
                     android:gravity="center"
-                    android:text="RPM "
+                    android:text="BMR"
                     android:textColor="#F2B800"
                     android:textSize="20dp"
                     android:textStyle="bold"
@@ -202,7 +202,7 @@
                     android:textColor="#F2B800"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/tvRPM"
+                    app:layout_constraintEnd_toStartOf="@+id/tvBMR"
                     app:layout_constraintStart_toEndOf="@+id/tvBMI"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -231,16 +231,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvPPM" />
 
                 <TextView
-                    android:id="@+id/tvRPMData"
+                    android:id="@+id/tvBMRData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:textColor="#000"
                     android:textSize="21dp"
-                    app:layout_constraintEnd_toEndOf="@+id/tvRPM"
-                    app:layout_constraintStart_toStartOf="@+id/tvRPM"
-                    app:layout_constraintTop_toBottomOf="@+id/tvRPM" />
+                    app:layout_constraintEnd_toEndOf="@+id/tvBMR"
+                    app:layout_constraintStart_toStartOf="@+id/tvBMR"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBMR" />
 
                 <TextView
                     android:id="@+id/tvBMI"
