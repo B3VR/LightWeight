@@ -182,7 +182,7 @@ class EditProfileFragment : Fragment(), View.OnClickListener {
                 editProfile()
             }
 
-            R.id.ivBackArrow2 -> navControler?.navigate(R.id.action_editProfileFragment_to_profileFragment)
+            R.id.ivBackArrow2 -> navControler?.navigate(R.id.action_editProfileFragment_to_mainFragment)
 
         }
 

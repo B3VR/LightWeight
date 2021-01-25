@@ -1,5 +1,6 @@
 package com.example.lightweight.Fragments
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -19,6 +21,8 @@ import com.example.lightweight.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.type.DateTime
+import java.time.LocalDate
 import com.example.lightweight.models.Training as Training
 
 
@@ -114,7 +118,13 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
             }
     }
 
+
     private fun archiveTraining(training: Training) {
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            training.date = LocalDate.now().toString()
+        }
+
         db.collection("Users")
             .document(auth.uid!!.toString())
             .collection("Training Archivum")

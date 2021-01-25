@@ -17,15 +17,20 @@ class User(var id: String?, var name: String?, var weight: Double?, var height: 
     }
 
     fun getBMR(): Double?{
-        var PPM = getPPM()!!.toDouble()
-        var BMR: Double? = null
+        if(getPPM() == null){
 
-        if(target != null && activity != null){
-            BMR = (PPM * activity!!) + target!!
+            return null
+        }else{
 
+            var PPM = getPPM()!!.toDouble()
+            var BMR: Double? = null
+
+            if(target != null && activity != null){
+                BMR = (PPM * activity!!) + target!!
+
+            }
+            return BMR
         }
-
-        return BMR
     }
 
     fun getPPM(): Int? {

@@ -83,7 +83,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
             .addOnSuccessListener {
                Log.d("REGISTER FRAGMENT", "UZYTKOWNIK DODANY")
             }.addOnFailureListener {
-               Log.d("REGISTER FRAGMENT", "BŁĄ DODAWANIA UŻYTKOWNIKA")
+               Log.d("REGISTER FRAGMENT", "BŁĄD DODAWANIA UŻYTKOWNIKA")
             }
     }
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context=".Fragments.RegisterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,8 +66,8 @@
             android:layout_height="60dp"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Nazwa użytkownika"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="@+id/logo"
             app:layout_constraintStart_toStartOf="@+id/logo"
             app:layout_constraintTop_toBottomOf="@+id/logo" />

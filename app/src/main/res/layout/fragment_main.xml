@@ -19,6 +19,7 @@
             android:background="#FFFFFF"
             android:src="@drawable/dumbbell"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,7 +68,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="30dp"
                         android:gravity="center"
-                        android:text="Profil \n użytkownika"
+                        android:text="Profil\nużytkownika"
                         android:textColor="#000"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -104,7 +105,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="30dp"
                         android:gravity="center"
-                        android:text="Rozpocznij \n trening"
+                        android:text="Rozpocznij\ntrening"
                         android:textColor="#000"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -112,6 +113,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnEditProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
@@ -132,15 +134,15 @@
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/nutrition" />
+                        android:src="@drawable/gear" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:layout_marginBottom="30dp"
+                        android:layout_marginBottom="20dp"
                         android:gravity="center"
-                        android:text="Profil \n użytkownika"
+                        android:text="Edytuj\nprofil"
                         android:textColor="#000"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -148,10 +150,11 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btnUserTrainings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
+                android:layout_rowWeight="2"
+                android:layout_columnWeight="2"
                 android:layout_margin="10dp"
                 android:backgroundTint="#F2B800"
                 android:clickable="true"
@@ -174,9 +177,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:layout_marginBottom="30dp"
+                        android:layout_marginBottom="20dp"
                         android:gravity="center"
-                        android:text="Twoje \n treningi"
+                        android:text="Twoje\ntreningi"
                         android:textColor="#000"
                         android:textSize="20dp"
                         android:textStyle="bold" />

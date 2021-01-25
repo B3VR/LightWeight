@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.lightweight.R
 
 class MainFragment : Fragment(), View.OnClickListener {
@@ -30,6 +31,8 @@ class MainFragment : Fragment(), View.OnClickListener {
 
         view.findViewById<CardView>(R.id.btnUserProfile).setOnClickListener(this)
         view.findViewById<CardView>(R.id.btnStartTraining).setOnClickListener(this)
+        view.findViewById<CardView>(R.id.btnUserTrainings).setOnClickListener(this)
+        view.findViewById<CardView>(R.id.btnEditProfile).setOnClickListener(this)
 
     }
 
@@ -39,6 +42,9 @@ class MainFragment : Fragment(), View.OnClickListener {
 
             R.id.btnStartTraining -> navControler!!.navigate(R.id.action_mainFragment_to_startTrainingFragment)
 
+            R.id.btnUserTrainings -> findNavController().navigate(R.id.action_mainFragment_to_trainingArchivumFragment)
+
+            R.id.btnEditProfile -> findNavController().navigate(R.id.action_mainFragment_to_editProfileFragment)
         }
     }
 

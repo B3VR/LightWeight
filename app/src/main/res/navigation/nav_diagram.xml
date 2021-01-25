@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_mainFragment_to_startTrainingFragment"
             app:destination="@id/startTrainingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_trainingArchivumFragment"
+            app:destination="@id/trainingArchivumFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
@@ -23,8 +29,8 @@
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" >
         <action
-            android:id="@+id/action_editProfileFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_editProfileFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/exercisesListFragment"
@@ -43,9 +49,6 @@
         <action
             android:id="@+id/action_profileFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_profileFragment_to_editProfileFragment"
-            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/startTrainingFragment"
@@ -87,5 +90,25 @@
         <action
             android:id="@+id/action_currentExerciseFragment_to_startTrainingFragment"
             app:destination="@id/startTrainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainingArchivumFragment"
+        android:name="com.example.lightweight.Fragments.TrainingArchivumFragment"
+        android:label="TrainingArchivumFragment" >
+        <action
+            android:id="@+id/action_trainingArchivumFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_trainingArchivumFragment_to_archiveTrainingFragment"
+            app:destination="@id/archiveTrainingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/archiveTrainingFragment"
+        android:name="com.example.lightweight.Fragments.ArchiveTrainingFragment"
+        android:label="fragment_archive_training"
+        tools:layout="@layout/fragment_archive_training" >
+        <action
+            android:id="@+id/action_archiveTrainingFragment_to_trainingArchivumFragment"
+            app:destination="@id/trainingArchivumFragment" />
     </fragment>
 </navigation>

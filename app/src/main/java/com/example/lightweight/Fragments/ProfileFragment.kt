@@ -41,12 +41,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         navControler = Navigation.findNavController(view)
 
         view.findViewById<ImageView>(R.id.ivBackArrow).setOnClickListener(this)
-        view.findViewById<TextView>(R.id.tvEditProfile).setOnClickListener(this)
-
-
 
         getUserData()
-
     }
 
     private fun getUserData(){
@@ -100,7 +96,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
 
         if (user?.getBMR() == null){
-            tvBMRData.text = "null"
+            tvBMRData.text = "-"
         }else{
             tvBMRData.text = BigDecimal(user.getBMR()!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " kcal"
         }
@@ -111,8 +107,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?){
         when(v!!.id){
             R.id.ivBackArrow -> navControler?.navigate(R.id.action_profileFragment_to_mainFragment)
-
-            R.id.tvEditProfile -> navControler?.navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
     }
 }
