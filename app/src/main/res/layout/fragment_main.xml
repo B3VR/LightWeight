@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="215dp"
-            android:layout_height="192dp"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
             android:layout_marginTop="16dp"
             android:background="#FFFFFF"
             android:src="@drawable/dumbbell"
@@ -22,58 +22,167 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/profileBtn"
-            android:layout_width="139dp"
-            android:layout_height="215dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/custom_btn"
-            android:text="Profil użytkownika"
-            android:elevation="30dp"
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.18"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+            app:layout_constraintTop_toBottomOf="@+id/logo">
 
-        <Button
-            android:id="@+id/editProfileBtn"
-            android:layout_width="139dp"
-            android:layout_height="215dp"
-            android:layout_marginTop="20dp"
-            android:elevation="30dp"
-            android:background="@drawable/custom_btn"
-            android:text="Edytuj profil"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/profileBtn"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/profileBtn"
-            app:layout_constraintTop_toBottomOf="@+id/profileBtn" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnUserProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:backgroundTint="#F2B800"
+                android:clickable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="12dp">
 
-        <Button
-            android:id="@+id/addTrainingBtn"
-            android:layout_width="139dp"
-            android:layout_height="215dp"
-            android:layout_marginTop="20dp"
-            android:elevation="30dp"
-            android:background="@drawable/custom_btn"
-            android:text="Dodaj trening"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/startTrainingBtn"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/startTrainingBtn"
-            app:layout_constraintTop_toBottomOf="@+id/startTrainingBtn" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-        <Button
-            android:id="@+id/startTrainingBtn"
-            android:layout_width="139dp"
-            android:layout_height="215dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/custom_btn"
-            android:text="Rozpocznij trening"
-            android:elevation="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.416"
-            app:layout_constraintStart_toEndOf="@+id/profileBtn"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        android:text="Profil \n użytkownika"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnStartTraining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:backgroundTint="#F2B800"
+                android:clickable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/start_training" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        android:text="Rozpocznij \n trening"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:backgroundTint="#F2B800"
+                android:clickable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/nutrition" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        android:text="Profil \n użytkownika"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:backgroundTint="#F2B800"
+                android:clickable="true"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/calendar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        android:text="Twoje \n treningi"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

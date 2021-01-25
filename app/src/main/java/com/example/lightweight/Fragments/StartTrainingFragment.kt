@@ -49,8 +49,6 @@ class StartTrainingFragment : Fragment(), View.OnClickListener {
         view.findViewById<ImageView>(R.id.ivBackArrow3).setOnClickListener(this)
         rvGroup = view.findViewById(R.id.rvCurrentTraining)
 
-        rvGroup.adapter?.notifyDataSetChanged()
-
         getCurrentTraining()
     }
 
