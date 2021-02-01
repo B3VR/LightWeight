@@ -53,5 +53,32 @@ class User(var id: String?, var name: String?, var weight: Double?, var height: 
 
     }
 
+    fun getMacroElements() : Map<String, Double?> {
+        var proteins: Double?
+        var fat: Double?
+        var carbohydrates: Double?
+        var BMR = getBMR()
+
+        if(BMR != null){
+            proteins = 2 * weight!!
+            fat = (BMR!! * 0.27) / 9
+            carbohydrates = (BMR - (proteins * 4 + fat * 9)) / 4
+
+        }else{
+            proteins = null
+            fat = null
+            carbohydrates = null
+        }
+
+
+        var macroElements = mapOf<String, Double?>(
+            "fat" to fat,
+            "proteins" to proteins,
+            "carbohydrates" to carbohydrates
+        )
+
+        return macroElements
+    }
+
 
 }

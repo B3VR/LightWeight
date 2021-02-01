@@ -45,6 +45,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
                 android:backgroundTint="#F2B800"
+                android:focusableInTouchMode="true"
                 android:clickable="true"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="12dp">

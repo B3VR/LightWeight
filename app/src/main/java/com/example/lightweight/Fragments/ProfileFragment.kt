@@ -84,9 +84,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         if (user?.getBMI() == null){
             tvBMIData.text = "-"
-            tvBMI.setError("Uzupełnij profil by uzyskać więcej informacji")
         }else {
-            tvBMIData.text = BigDecimal(user?.getBMI()!!).setScale(0, RoundingMode.HALF_EVEN).toString()
+            tvBMIData.text = BigDecimal(user?.getBMI()!!).setScale(1, RoundingMode.HALF_EVEN).toString()
         }
 
         if (user?.getPPM() == null){
@@ -99,6 +98,23 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             tvBMRData.text = "-"
         }else{
             tvBMRData.text = BigDecimal(user.getBMR()!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " kcal"
+        }
+
+        if(user?.getBMR() == null){
+            tvProtein.text = "-"
+            tvFat.text = "-"
+            tvCarbo.text = "-"
+
+        }else{
+            var macroElements = user.getMacroElements()
+            var proteins = macroElements["proteins"]
+            var carbo = macroElements.get("carbohydrates")
+            var fat = macroElements.get("fat")
+
+            tvProtein.text = BigDecimal(proteins!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " g"
+            tvFat.text = BigDecimal(fat!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " g"
+            tvCarbo.text = BigDecimal(carbo!!).setScale(0, RoundingMode.HALF_EVEN).toString() + " g"
+
         }
 
 

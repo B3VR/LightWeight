@@ -25,13 +25,33 @@
             app:layout_constraintVertical_bias="0.13999999" />
 
         <EditText
+            android:id="@+id/userNameRegisterTxt"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/custom_user_icon"
+            android:drawablePadding="12dp"
+            android:padding="12dp"
+            android:background="@drawable/custom_input"
+            android:hint="Nazwa użytkownika"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/logo"
+            app:layout_constraintStart_toStartOf="@+id/logo"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <EditText
             android:id="@+id/emailRegisterTxt"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_email_icon"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="@+id/userNameRegisterTxt"
             app:layout_constraintStart_toStartOf="@+id/userNameRegisterTxt"
             app:layout_constraintTop_toBottomOf="@+id/userNameRegisterTxt" />
@@ -40,10 +60,14 @@
             android:id="@+id/passwordRegisterTxt"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_password_icon"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Hasło"
             android:inputType="textPassword"
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="@+id/emailRegisterTxt"
             app:layout_constraintStart_toStartOf="@+id/emailRegisterTxt"
             app:layout_constraintTop_toBottomOf="@+id/emailRegisterTxt" />
@@ -52,25 +76,19 @@
             android:id="@+id/passwordRegistertxt2"
             android:layout_width="330dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:drawableLeft="@drawable/custom_password_icon"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Powtórz hasło"
             android:inputType="textPassword"
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="@+id/passwordRegisterTxt"
             app:layout_constraintStart_toStartOf="@+id/passwordRegisterTxt"
             app:layout_constraintTop_toBottomOf="@+id/passwordRegisterTxt" />
 
-        <EditText
-            android:id="@+id/userNameRegisterTxt"
-            android:layout_width="330dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="Nazwa użytkownika"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/logo"
-            app:layout_constraintStart_toStartOf="@+id/logo"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
 
         <Button
             android:id="@+id/registerBtn"

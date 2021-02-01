@@ -11,41 +11,6 @@
         android:layout_height="match_parent"
         android:background="#FFF">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <TextView
-                android:id="@+id/tvAgeHeight"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Wiek: "
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etAge"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:ems="10"
-                android:hint="Wiek"
-                android:inputType="number" />
-
-        </LinearLayout>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
@@ -120,10 +85,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="12dp"
                 android:layout_marginLeft="12dp"
-                android:textColor="#F2B800"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Twoje dane"
+                android:textColor="#F2B800"
                 android:textSize="24dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -133,12 +98,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout4"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/tvEditWeight">
 
             <RadioButton
                 android:id="@+id/rbMale"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mężczyzna"
                 android:textSize="18dp"
@@ -146,7 +111,7 @@
 
             <RadioButton
                 android:id="@+id/rbFemale"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kobieta"
                 android:textSize="18dp"
@@ -154,76 +119,12 @@
         </RadioGroup>
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-            <TextView
-                android:id="@+id/tvEditWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Waga: "
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etWeight"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="[kg]"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-            <TextView
-                android:id="@+id/tvEditHeight"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Wzrost: "
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etHeight"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginLeft="8dp"
-                android:ems="10"
-                android:hint="[cm]"
-                android:inputType="number" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/rgSex">
 
@@ -264,6 +165,7 @@
             android:layout_marginTop="16dp"
             android:entries="@array/destination"
             app:layout_constraintEnd_toEndOf="@+id/sActivity"
+            app:layout_constraintStart_toStartOf="@+id/sActivity"
             app:layout_constraintTop_toBottomOf="@+id/sActivity" />
 
         <TextView
@@ -284,15 +186,98 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:text="Cel: "
-            android:textStyle="bold"
             android:textColor="#000"
             android:textSize="20dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/sDest"
-            app:layout_constraintEnd_toStartOf="@+id/sDest"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="@+id/sDest" />
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="80dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/custom_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Wiek"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAgeHeight"
+            app:layout_constraintStart_toEndOf="@+id/tvAgeHeight"
+            app:layout_constraintTop_toTopOf="@+id/tvAgeHeight" />
+
+        <TextView
+            android:id="@+id/tvAgeHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Wiek: "
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/tvEditWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Waga: "
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvEditHeight"
+            app:layout_constraintTop_toBottomOf="@+id/tvEditHeight" />
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="80dp"
+            android:layout_height="38dp"
+            android:background="@drawable/custom_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="[kg]"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEditHeight"
+            app:layout_constraintStart_toStartOf="@+id/etAge"
+            app:layout_constraintTop_toTopOf="@+id/tvEditHeight" />
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="80dp"
+            android:layout_height="38dp"
+            android:background="@drawable/custom_input"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="[cm]"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEditWeight"
+            app:layout_constraintStart_toStartOf="@+id/etWeight"
+            app:layout_constraintTop_toTopOf="@+id/tvEditWeight" />
+
+        <TextView
+            android:id="@+id/tvEditHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Wzrost: "
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvAgeHeight"
+            app:layout_constraintTop_toBottomOf="@+id/tvAgeHeight" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
